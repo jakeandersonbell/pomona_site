@@ -20,6 +20,8 @@ def load_shows(csv_file):
                 html += f'    <br>\n    <li><a href="{row["link"].strip()}">{text}</a></li>\n'
             else:
                 html += f'    <br>\n    <li>{text}</li>\n'
+
+    html += '<br>'  # add one break at end
     return html
 
 def build_page():
