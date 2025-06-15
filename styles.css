@@ -43,11 +43,13 @@ body, html {
 }
 
 /* Band Image */
+/*
 img {
     max-width: 100%;
     height: auto;
     margin: 20px 0;
 }
+/*
 
 /* Upcoming Shows List */
 ul {
