@@ -61,7 +61,7 @@ ul li {
     margin: 10px 0;
     font-family: 'Elmhurst', sans-serif;
     font-weight: bold;
-    font-size: 36px; /* Converted from 5vw */
+    font-size: 5vw; /* Converted from 5vw */
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -92,37 +92,40 @@ ul li a:focus {
 }
 
 #content h1 {
-    font-family: 'Elmhurst', sans-serif; /* Use Elmhurst font, fallback to sans-serif */
-    font-style: italic; /* Use the italic version of the font */
-    font-size: 144px; /* Converted from 20vw */
+    font-family: 'Elmhurst', sans-serif;
+    font-style: italic;
+    font-size: 15vw; /* Responsive font size */
     margin: 0;
     color: rgba(255, 0, 0, 0.6);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 #content h2 {
-    font-family: 'Elmhurst', sans-serif; /* Use Elmhurst font, fallback to sans-serif */
-    font-style: bold; /* Corrected casing */
-    font-size: 50px; /* Converted from 7vw */
+    font-family: 'Elmhurst', sans-serif;
+    font-style: bold;
+    font-size: 5.2vw; /* Scaled from 50px */
     margin: 0;
     color: rgba(255, 213, 0, 0.6);
     text-decoration: none;
 }
 
 #content h2 a {
-    color: rgba(255, 213, 0, 0.6); /* Override the default blue color */
+    color: rgba(255, 213, 0, 0.6);
     text-decoration: none;
 }
 
 #content h2 a:hover, h2 a:focus {
     text-decoration: underline;
-    text-decoration-color: rgba(255, 0, 0, 0.6); /* Change the underline color */
+    text-decoration-color: rgba(255, 0, 0, 0.6);
 }
 
 #content h3 {
-    font-family: 'Elmhurst', sans-serif; /* Use Elmhurst font, fallback to sans-serif */
-    font-style: bold; /* Corrected casing */
-    font-size: 65px; /* Converted from 9vw */
+    font-family: 'Elmhurst', sans-serif;
+    font-style: bold;
+    font-size: 6.8vw; /* Scaled from 65px */
     margin: 0;
     color: rgba(255, 213, 0, 0.6);
     text-decoration: underline;
