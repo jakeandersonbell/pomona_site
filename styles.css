@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    overflow: auto; /* Allow scroll */
     font-family: Arial, sans-serif;
     color: white;
 }
@@ -37,9 +37,10 @@ body, html {
     z-index: 1;
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.25); /* Semi-transparent background */
-    overflow-y: auto; /* Enable scrolling for the content */
-    height: 100vh; /* Make content container full height */
+    background-color: rgba(0, 0, 0, 0.25);
+    /* Remove this ↓ */
+    /* height: 100vh; */
+    min-height: calc(100vh - 60px); /* Ensures content fills screen if short */
 }
 
 /* Band Image */
