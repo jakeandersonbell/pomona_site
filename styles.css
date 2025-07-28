@@ -137,3 +137,20 @@ ul li a:focus {
     height: 40vh;
     opacity: 0.75;
 }
+
+#events-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1em;
+}
+
+#events-list li {
+  margin-bottom: 0.8em;
+}
+
+#events-list a {
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px dashed white;
+}
+

@@ -31,25 +31,9 @@
         <img src="img/dy_combined_red_yellow.gif" alt="Hands" id="hands">
         <br>
         <h3>Upcoming Shows</h3>
-            <ul>
-                <br>
-    <li><a href="https://www.seetickets.com/event/pomona-woke-nonsense-lola-vaughan/the-rat-pigeon/3402113">28/06 - The Rat and Pigeon - Manchester</a></li>
-    <br>
-    <li>04/07 - Freemasons Pub - Brighton</li>
-    <br>
-    <li><a href="https://aatmavenue.co.uk/">31/07 - Aatma - Manchester</a></li>
-    <br>
-    <li>29/08 - The Old Blue Last - London</li>
-    <br>
-    <li><a href="https://www.polarbearmusicclub.co.uk/sesh">16/09 - The Sesh - Hull</a></li>
-    <br>
-    <li>20/09 - On the Irwell Festival - Manchester</li>
-    <br>
-    <li>26/09 - TBC - Manchester</li>
-    <br>
-    <li>03/10 - The Castle - Manchester</li>
-<br>
-            </ul>
+        <ul id="events-list"></ul>
+
+        <br>
     </div>
 <footer style="text-align: center; padding: 20px; color: rgba(255, 255, 255, 0.5); font-size: 14px;">
   &copy; <span id="year"></span> Pomona. All rights reserved.
@@ -57,6 +41,43 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const EVENTS_ENDPOINT = "https://bandsintown-proxy.vercel.app/api/events?artist=Pomona";
+
+  fetch(EVENTS_ENDPOINT, {
+  })
+    .then(res => res.json())
+    .then(events => {
+      const list = document.getElementById("events-list");
+
+      if (!events || !events.length) {
+        list.innerHTML = "<li>No upcoming shows.</li>";
+        return;
+      }
+
+      events.forEach(event => {
+        const date = new Date(event.datetime).toLocaleDateString("en-UK", {
+          day: "2-digit", month: "2-digit"
+        });
+
+        const venue = event.venue?.name || "Venue TBC";
+        const city = event.venue?.city || "";
+        const url = event.url;
+
+        const li = document.createElement("li");
+        li.innerHTML = url
+          ? `<a href="${url}" target="_blank">${date} - ${venue} - ${city}</a>`
+          : `${date} - ${venue} - ${city}`;
+
+        list.appendChild(li);
+      });
+    })
+    .catch(err => {
+      console.error("Failed to load events", err);
+      document.getElementById("events-list").innerHTML = "<li>Error loading shows.</li>";
+    });
 </script>
 </body>
 </html>
