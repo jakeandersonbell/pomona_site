@@ -67,13 +67,22 @@
         const url = event.url;
 
         const li = document.createElement("li");
-        li.innerHTML = url
-          ? `<br>`
-          ? `<a href="${url}" target="_blank">${date} - ${venue} - ${city}</a>`
-          : `${date} - ${venue} - ${city}`;
+        const ul = document.getElementById("events-list");
+        ul.innerHTML = ""; // Clear existing list
 
-        list.appendChild(li);
-      });
+        events.forEach(event => {
+          // Add <br> before the <li>
+          ul.appendChild(document.createElement("br"));
+
+          // Create and append the <li>
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${event.url}" target="_blank">${event.datetime.split('T')[0]} - ${event.venue.name} - ${event.venue.city}</a>`;
+          ul.appendChild(li);
+        });
+
+        // Add one final <br> at the bottom after all items
+        ul.appendChild(document.createElement("br"));
+
     })
     .catch(err => {
       console.error("Failed to load events", err);
