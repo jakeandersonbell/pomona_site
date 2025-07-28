@@ -68,6 +68,7 @@
 
         const li = document.createElement("li");
         li.innerHTML = url
+          ? `<br>`
           ? `<a href="${url}" target="_blank">${date} - ${venue} - ${city}</a>`
           : `${date} - ${venue} - ${city}`;
 
