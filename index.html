@@ -40,8 +40,6 @@
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const EVENTS_ENDPOINT = "https://bandsintown-proxy.vercel.app/api/events?artist=Pomona";
@@ -50,7 +48,7 @@
       .then(res => res.json())
       .then(events => {
         const ul = document.getElementById("events-list");
-        ul.innerHTML = ""; // Clear existing list BEFORE looping
+        ul.innerHTML = "";
 
         if (!events || !events.length) {
           ul.innerHTML = "<li>No upcoming shows.</li>";
@@ -58,10 +56,6 @@
         }
 
         events.forEach(event => {
-          // Add <br> before the <li>
-          ul.appendChild(document.createElement("br"));
-
-          // Create and append the <li>
           const li = document.createElement("li");
           const date = new Date(event.datetime).toLocaleDateString("en-UK", {
             day: "2-digit",
@@ -72,9 +66,6 @@
           li.innerHTML = `<a href="${event.url}" target="_blank">${date} - ${venue} - ${city}</a>`;
           ul.appendChild(li);
         });
-
-        // Add one final <br> at the bottom after all items
-        ul.appendChild(document.createElement("br"));
       })
       .catch(err => {
         console.error("Failed to load events", err);
