@@ -145,14 +145,23 @@ ul li a:focus {
 }
 
 #events-list li {
+  font-family: 'Elmhurst', sans-serif;
+  font-weight: bold;
+  font-size: 5vw;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1em;
   margin-bottom: 0.8em;
-  margin-top: 1em;  /* space above each list item */
 }
 
 #events-list a {
+  color: inherit;
   text-decoration: none;
-  color: white;
-  border-bottom: 1px dashed white;
+}
+
+#events-list a:hover,
+#events-list a:focus {
+  color: red;
+  text-decoration: underline;
 }
 
 #events-list li:last-child {
