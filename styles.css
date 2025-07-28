@@ -168,3 +168,25 @@ ul li a:focus {
   margin-bottom: 1em;  /* extra space after last item */
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 5vh;
+  margin: 30px 0;
+}
+
+.social-icon {
+  width: 7vh;   /* increased from 4vh */
+  height: 7vh;  /* increased from 4vh */
+  filter: invert(82%) sepia(10%) saturate(6940%) hue-rotate(1deg) brightness(107%) contrast(103%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.6; /* 60% transparency */
+}
+
+.social-icon:hover {
+  /* opacity: 1; */
+  /* transform: scale(1.1); */
+  filter:
+    invert(82%) sepia(10%) saturate(6940%) hue-rotate(1deg) brightness(107%) contrast(103%)
+    drop-shadow(0 0 5px red);
+}
