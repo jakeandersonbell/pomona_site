@@ -107,7 +107,7 @@ ul li a:focus {
 #content h2 {
     font-family: 'Elmhurst', sans-serif;
     font-style: bold;
-    font-size: 5.2vw; /* Scaled from 50px */
+    font-size: 7vw; /* Scaled from 50px */
     margin: 0;
     color: rgba(255, 213, 0, 0.6);
     text-decoration: none;
@@ -199,7 +199,7 @@ ul li a:focus {
   }
 
   #content h2 {
-    font-size: 7.8vw; /* 5.2vw * 1.5 */
+    font-size: 11vw; /* 5.2vw * 1.5 */
   }
 
   #content h3 {
@@ -212,13 +212,13 @@ ul li a:focus {
 
   /* Make social icons smaller on mobile */
   .social-icon {
-    width: 3vh;  /* smaller than 5vh */
-    height: 3vh;
-    opacity: 0.8; /* a bit more visible on smaller size */
+    width: 5vh;  /* smaller than 5vh */
+    height: 5vh;
+    opacity: 0.6; /* a bit more visible on smaller size */
   }
 
   .social-links {
-    gap: 2.5vh; /* a bit less space to fit smaller icons nicely */
+    gap: 3vh; /* a bit less space to fit smaller icons nicely */
     margin: 20px 0;
   }
 }
