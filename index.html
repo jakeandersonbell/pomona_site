@@ -42,33 +42,20 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  const EVENTS_ENDPOINT = "https://bandsintown-proxy.vercel.app/api/events?artist=Pomona";
+    const EVENTS_ENDPOINT = "https://bandsintown-proxy.vercel.app/api/events?artist=Pomona";
 
-  fetch(EVENTS_ENDPOINT, {
-  })
-    .then(res => res.json())
-    .then(events => {
-      const list = document.getElementById("events-list");
-
-      if (!events || !events.length) {
-        list.innerHTML = "<li>No upcoming shows.</li>";
-        return;
-      }
-
-      events.forEach(event => {
-        const date = new Date(event.datetime).toLocaleDateString("en-UK", {
-          day: "2-digit", month: "2-digit"
-        });
-
-        const venue = event.venue?.name || "Venue TBC";
-        const city = event.venue?.city || "";
-        const url = event.url;
-
-        const li = document.createElement("li");
+    fetch(EVENTS_ENDPOINT)
+      .then(res => res.json())
+      .then(events => {
         const ul = document.getElementById("events-list");
-        ul.innerHTML = ""; // Clear existing list
+        ul.innerHTML = ""; // Clear existing list BEFORE looping
+
+        if (!events || !events.length) {
+          ul.innerHTML = "<li>No upcoming shows.</li>";
+          return;
+        }
 
         events.forEach(event => {
           // Add <br> before the <li>
@@ -76,18 +63,24 @@
 
           // Create and append the <li>
           const li = document.createElement("li");
-          li.innerHTML = `<a href="${event.url}" target="_blank">${event.datetime.split('T')[0]} - ${event.venue.name} - ${event.venue.city}</a>`;
+          const date = new Date(event.datetime).toLocaleDateString("en-UK", {
+            day: "2-digit",
+            month: "2-digit"
+          });
+          const venue = event.venue?.name || "Venue TBC";
+          const city = event.venue?.city || "";
+          li.innerHTML = `<a href="${event.url}" target="_blank">${date} - ${venue} - ${city}</a>`;
           ul.appendChild(li);
         });
 
         // Add one final <br> at the bottom after all items
         ul.appendChild(document.createElement("br"));
+      })
+      .catch(err => {
+        console.error("Failed to load events", err);
+        document.getElementById("events-list").innerHTML = "<li>Error loading shows.</li>";
+      });
 
-    })
-    .catch(err => {
-      console.error("Failed to load events", err);
-      document.getElementById("events-list").innerHTML = "<li>Error loading shows.</li>";
-    });
 </script>
 </body>
 </html>
